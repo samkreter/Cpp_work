@@ -15,6 +15,7 @@ public:
     List();
     void add(int data);
     void printList();
+    Node* getHead();
     virtual ~List();
 private:
     Node* head;

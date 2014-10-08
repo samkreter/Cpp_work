@@ -19,18 +19,20 @@ int main(int argc, char** argv) {
     
     int numOfNodes = 0, edge1 = 0, edge2 = 0;
     GraphList* graph;
+
+    
     
     cout<<"Enter the number of elements"<<endl;
     cin>>numOfNodes;
-    
-    graph = new GraphList(4);
+
+    graph = new GraphList(numOfNodes);
     for(int i=0; i<numOfNodes; i++){
-        cout<<"Enter the two edges";
-        cin>>edge1>>edge2;
-        cout<<edge1<<edge2<<endl;
+        edge1 = i;
+        edge2 = i + 5;
         graph->addEdge(edge1,edge2);
     }
-    
+    graph->addEdge(1,3);
+    graph->addEdge(1,78);
     graph->printGraph();
     
     return 0;

@@ -31,13 +31,26 @@ void List::add(int data){
 }
 
 void List::printList(){
-    Node* curr = head;
-    while(curr->getNext() != NULL){
-        std::cout<<curr->getData()<<" ";
+    Node* curr = NULL;
+    if(head != NULL){
+        curr = head;
     }
+    else{
+        std::cout<<"Error: head is NULL";
+        return;
+    }
+ 
+    while(curr->getNext() != NULL){
+        std::cout<<curr->getData()<<"->";
+        curr = curr->getNext();
+    }
+    std::cout<<curr->getData()<<"->NULL";
     std::cout<<std::endl;
 }
 
+Node* List::getHead(){
+    return this->head;
+}
 
 
 List::~List() {

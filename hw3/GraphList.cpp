@@ -38,6 +38,9 @@ void GraphList::addEdge(int edge1, int edge2){
 void GraphList::printGraph(){
     for(int i=0; i<this->numOfNodes; i++){
         std::cout<<i;
+        if(graphlist[i]->getHead() != NULL){
+            std::cout<<"->";
+        }
         if(graphlist[i] != NULL){
             graphlist[i]->printList();
         }
