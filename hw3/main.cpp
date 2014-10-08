@@ -7,6 +7,8 @@
 
 #include <cstdlib>
 #include<iostream>
+#include<fstream>
+
 
 #include "GraphList.h"
 
@@ -17,11 +19,22 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
+    
     int numOfNodes = 0, edge1 = 0, edge2 = 0;
     GraphList* graph;
-
+    ifstream inputFile("test0.grph");
+    string thestring; 
+    if(inputFile.is_open()){
+        while(!inputFile.eof()){
+        inputFile >> thestring;
+        cout<<thestring<<endl;
+        }
+    }
     
     
+    
+    
+    /*
     cout<<"Enter the number of elements"<<endl;
     cin>>numOfNodes;
 
@@ -34,7 +47,7 @@ int main(int argc, char** argv) {
     graph->addEdge(1,3);
     graph->addEdge(1,78);
     graph->printGraph();
-    
+    */
     return 0;
 }
 

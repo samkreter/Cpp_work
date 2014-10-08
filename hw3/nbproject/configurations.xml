@@ -41,6 +41,9 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="GraphList.cpp" ex="false" tool="1" flavor2="0">
       </item>
