@@ -19,6 +19,8 @@ public:
     void addEdge(int edge1, int edge2);
     void printGraph();
     void BFS(int start);
+    void DFSUtil(int v, bool visited[]);
+    void DFS(int v);
     
 private:
      int numOfNodes;

@@ -27,7 +27,7 @@ void Queue::enqueue(int data, int distance){
 }
 
 Node* Queue::dequeue(){
-    if(head != NULL){
+    if(this->head != NULL){
         Node* q = this->head;
         Node* temp = this->head;
         if(this->head->getNext() != NULL){
@@ -39,17 +39,17 @@ Node* Queue::dequeue(){
         delete(temp);
         temp = NULL;
         return q;
-         }
+    }
     std::cout<<"Error: Queue is empty";
     return 0;
 }
 
 int Queue::isEmpty(){
     if(head == NULL){
-        return 0;
+        return 1;
     }
     else{
-        return 1;
+        return 0;
     }
 }
 

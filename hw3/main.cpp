@@ -25,6 +25,7 @@ int main(int argc, char** argv) {
     
     int numOfNodes = 0, edge1 = 0, edge2 = 0, counter = 0;
     GraphList* graph;
+    Queue q = Queue();
     std::string parseString, substring;
     ifstream inputFile("test0.grph");
    
@@ -50,12 +51,10 @@ int main(int argc, char** argv) {
     }
     
     graph->printGraph();
-    
-//    Queue* q = new Queue();
-//    
-//    q->enqueue(1,4);
-//    std::cout<<q->dequeue()->getData();
-   graph->BFS(1);
+   
+
+    graph->BFS(1);
+   // graph->DFS(1);
     
     
     inputFile.close();
