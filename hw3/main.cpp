@@ -22,9 +22,10 @@ using namespace std;
 int main(int argc, char** argv) {
     
     Queue* queue = new Queue();
-    QueueNode* q = NULL;
-    queue->enqueue(5,1);
+    Node* q = NULL;
+    queue->enqueue(5);
     q = queue->dequeue();
+    q->setDistance(5);
     cout<<q->getData()<<" "<<q->getDistance();
     
     /*

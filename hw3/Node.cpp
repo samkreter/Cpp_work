@@ -15,12 +15,28 @@ Node::Node(int data) {
 }
 
 
+void Node::setDistance(int distance){
+    this->distance = distance;
+}
+
+int Node::getDistance(){
+    return this->distance;
+}
+
 void Node::setNext(Node* n){
     this->next = n;
 }
 
 Node* Node::getNext(){
     return this->next;
+}
+
+int Node::getVisited(){
+    return this->visited;
+}
+
+void Node::setVisited(int b){
+    this->visited = b;
 }
 
 void Node::setData(int data){
@@ -34,4 +50,3 @@ int Node::getData(){
 
 Node::~Node() {
 }
-

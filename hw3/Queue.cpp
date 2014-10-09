@@ -13,21 +13,21 @@ Queue::Queue() {
     setTail(NULL);
 }
 
-void Queue::enqueue(int data, int distance){
+void Queue::enqueue(int data){
     if(this->head == NULL){
-        this->head = new QueueNode(data,distance);
+        this->head = new Node(data);
         this->tail = this->head;
     }
     else{
-        this->tail->setNext(new QueueNode(data,distance));
+        this->tail->setNext(new Node(data));
         this->tail = this->tail->getNext();
     }
 }
 
-QueueNode* Queue::dequeue(){
+Node* Queue::dequeue(){
     if(head != NULL){
-        QueueNode* q = this->head;
-        QueueNode* temp = this->head;
+        Node* q = this->head;
+        Node* temp = this->head;
         if(this->head->getNext() != NULL){
             this->head = this->head->getNext();
         }
@@ -51,38 +51,16 @@ int Queue::isEmpty(){
     }
 }
 
-QueueNode* Queue::getTail(){
+Node* Queue::getTail(){
     return this->tail;
 }
 
-void Queue::setTail(QueueNode* n){
+void Queue::setTail(Node* n){
     this->tail = n;
 }
 
 Queue::~Queue() {
 }
-
-
-QueueNode::QueueNode(int data, int distance):Node(data){
-    this->distance = distance;
-}
-
-void QueueNode::setDistance(int distance){
-    this->distance = distance;
-}
-
-int QueueNode::getDistance(){
-    return this->distance;
-}
-
-void QueueNode::setNext(QueueNode* n){
-    this->next = n;
-}
-
-QueueNode* QueueNode::getNext(){
-    return this->next;
-}
-
 
 
 

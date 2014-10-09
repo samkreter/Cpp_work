@@ -11,12 +11,18 @@
 class Node {
 public:
     Node(int data);
-    void setNext(Node *);
-    Node* getNext();
+    void setDistance(int distance);
+    int getDistance();
+    void setNext(Node* n);
+    void setVisited(int b);
+    int getVisited();
     void setData(int data);
     int getData();
+    Node* getNext();
     virtual ~Node();
-protected:
+private:
+    int distance;
+    int visited;
     Node* next;
     int data;
 
