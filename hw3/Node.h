@@ -16,9 +16,9 @@ public:
     void setData(int data);
     int getData();
     virtual ~Node();
-private:
-    int data;
+protected:
     Node* next;
+    int data;
 
     
 

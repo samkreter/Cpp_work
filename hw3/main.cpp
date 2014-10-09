@@ -21,9 +21,13 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
-   
+    Queue* queue = new Queue();
+    QueueNode* q = NULL;
+    queue->enqueue(5,1);
+    q = queue->dequeue();
+    cout<<q->getData()<<" "<<q->getDistance();
     
-   
+    /*
     int numOfNodes = 0, edge1 = 0, edge2 = 0, counter = 0;
     GraphList* graph;
     std::string parseString, substring;
@@ -55,7 +59,7 @@ int main(int argc, char** argv) {
     
     
     
-    inputFile.close();
+    inputFile.close();*/
     
     return 0;
 }

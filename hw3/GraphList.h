@@ -18,6 +18,7 @@ public:
     int getNumOfNodes();
     void addEdge(int edge1, int edge2);
     void printGraph();
+    void BFS();
     
 private:
      int numOfNodes;

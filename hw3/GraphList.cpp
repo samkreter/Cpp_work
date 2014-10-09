@@ -48,6 +48,11 @@ void GraphList::printGraph(){
     }
 }
 
+void GraphList::BFS(){
+    int distance = 0;
+    
+}
+
 
 
 GraphList::~GraphList() {
