@@ -36,7 +36,7 @@ void List::printList(){
         curr = head;
     }
     else{
-        std::cout<<"Error: head is NULL";
+        std::cout<<"->NULL";
         return;
     }
  
@@ -45,7 +45,7 @@ void List::printList(){
         curr = curr->getNext();
     }
     std::cout<<curr->getData()<<"->NULL";
-    std::cout<<std::endl;
+ 
 }
 
 Node* List::getHead(){

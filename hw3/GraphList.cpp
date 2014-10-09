@@ -13,7 +13,7 @@
 
 GraphList::GraphList(int numOfNodes) {
     setNumOfNodes(numOfNodes);
-    graphlist = new List* [5];
+    graphlist = new List* [numOfNodes];
     
     //populating the array of Lists
     for(int i=0; i<this->numOfNodes; i++){
@@ -44,6 +44,7 @@ void GraphList::printGraph(){
         if(graphlist[i] != NULL){
             graphlist[i]->printList();
         }
+        std::cout<<std::endl;
     }
 }
 
