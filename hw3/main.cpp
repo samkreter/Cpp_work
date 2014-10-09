@@ -12,6 +12,7 @@
 
 
 #include "GraphList.h"
+#include "Queue.h"
 
 using namespace std;
 
@@ -20,7 +21,9 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
+   
     
+   
     int numOfNodes = 0, edge1 = 0, edge2 = 0, counter = 0;
     GraphList* graph;
     std::string parseString, substring;
@@ -50,20 +53,10 @@ int main(int argc, char** argv) {
     
     graph->printGraph();
     
-    /*
-    cout<<"Enter the number of elements"<<endl;
-    cin>>numOfNodes;
-
     
-    for(int i=0; i<numOfNodes; i++){
-        edge1 = i;
-        edge2 = i + 5;
-        graph->addEdge(edge1,edge2);
-    }
-    graph->addEdge(1,3);
-    graph->addEdge(1,78);
-    graph->printGraph();
-    */
+    
+    inputFile.close();
+    
     return 0;
 }
 

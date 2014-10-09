@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/GraphList.o \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Node.o \
+	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/main.o
 
 
@@ -79,6 +80,11 @@ ${OBJECTDIR}/Node.o: Node.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Node.o Node.cpp
+
+${OBJECTDIR}/Queue.o: Queue.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
