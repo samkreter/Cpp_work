@@ -14,7 +14,7 @@
 class Queue {
 public:
     Queue();
-    void enqueue(int data);
+    void enqueue(int data, int distance);
     Node* dequeue();
     int isEmpty();
     void setTail(Node* n);

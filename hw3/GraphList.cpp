@@ -9,6 +9,7 @@
 #include "Node.h"
 #include "List.h"
 #include "GraphList.h"
+#include "Queue.h"
 
 
 GraphList::GraphList(int numOfNodes) {
@@ -48,8 +49,39 @@ void GraphList::printGraph(){
     }
 }
 
-void GraphList::BFS(){
+void GraphList::BFS(int start){
+    
+    //set array for visited, if 0 not visited, 1 visited
+    int* visitedArray = new int[this->numOfNodes]();
     int distance = 0;
+    Queue* queue = new Queue();
+    Node* curr = NULL;
+    
+    if(start > 0 && start < numOfNodes){
+        visitedArray[start] = 1;
+        curr = graphlist[start]->getHead();
+        while(curr != NULL){
+            queue->enqueue(curr->getData(),1);
+            curr = curr->getNext();
+        }
+    }
+    else{
+        std::cout<<"ERROR: start point is greater then number of NOdes or less than zero";
+        return;
+    }
+        
+    while(!queue->isEmpty()){
+        curr = queue->dequeue();
+        std::cout<<curr->getData()<<" is "<<curr->getDistance()<<" from "<<start<<std::endl;
+        if(!visitedArray[curr->getData()]){
+            distance = curr->getDistance() + 1;
+            while(curr != NULL){
+                queue->enqueue(curr->getData(),distance);
+                curr = curr->getNext();
+            }
+        }
+    }
+    
     
 }
 

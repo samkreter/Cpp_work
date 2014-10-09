@@ -21,14 +21,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
-    Queue* queue = new Queue();
-    Node* q = NULL;
-    queue->enqueue(5);
-    q = queue->dequeue();
-    q->setDistance(5);
-    cout<<q->getData()<<" "<<q->getDistance();
+ 
     
-    /*
     int numOfNodes = 0, edge1 = 0, edge2 = 0, counter = 0;
     GraphList* graph;
     std::string parseString, substring;
@@ -41,15 +35,14 @@ int main(int argc, char** argv) {
         cout<<"error reading the file";
     }
     graph = new GraphList(numOfNodes);
-    cout<<numOfNodes;
+   
     
     while(!inputFile.eof()){
-        if(counter < 4){
+        if(counter < 4){               ////////////////////////////// <<<test
             inputFile>>parseString;
             edge1 = atoi(parseString.substr(1, parseString.find(",")).c_str());
             edge2 = atoi(parseString.substr(parseString.find(",")+1,parseString.length()-1).c_str());
             graph->addEdge(edge1,edge2);
-            cout<<endl<<edge1<<" "<<edge2<<endl;;
             counter++;
         }
         else{break;}
@@ -58,9 +51,11 @@ int main(int argc, char** argv) {
     
     graph->printGraph();
     
+    graph->BFS(1);
     
+    cout<<"testing";
     
-    inputFile.close();*/
+    inputFile.close();
     
     return 0;
 }

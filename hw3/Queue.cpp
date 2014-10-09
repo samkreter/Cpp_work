@@ -13,14 +13,16 @@ Queue::Queue() {
     setTail(NULL);
 }
 
-void Queue::enqueue(int data){
+void Queue::enqueue(int data, int distance){
     if(this->head == NULL){
         this->head = new Node(data);
+        this->head->setDistance(distance);
         this->tail = this->head;
     }
     else{
         this->tail->setNext(new Node(data));
         this->tail = this->tail->getNext();
+        this->tail->setDistance(distance);
     }
 }
 

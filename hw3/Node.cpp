@@ -12,6 +12,7 @@
 Node::Node(int data) {
     setData(data);
     setNext(NULL);
+    setDistance(-1);
 }
 
 
