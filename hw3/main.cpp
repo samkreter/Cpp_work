@@ -51,9 +51,12 @@ int main(int argc, char** argv) {
     
     graph->printGraph();
     
-    graph->BFS(1);
+//    Queue* q = new Queue();
+//    
+//    q->enqueue(1,4);
+//    std::cout<<q->dequeue()->getData();
+   graph->BFS(1);
     
-    cout<<"testing";
     
     inputFile.close();
     

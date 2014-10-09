@@ -51,6 +51,13 @@ void GraphList::printGraph(){
 
 void GraphList::BFS(int start){
     
+//    Queue* q = new Queue();   
+//    q->enqueue(1,8);
+//    std::cout<<q->dequeue()->getData();
+    
+    
+    
+    
     //set array for visited, if 0 not visited, 1 visited
     int* visitedArray = new int[this->numOfNodes]();
     int distance = 0;
@@ -60,16 +67,18 @@ void GraphList::BFS(int start){
     if(start > 0 && start < numOfNodes){
         visitedArray[start] = 1;
         curr = graphlist[start]->getHead();
-        while(curr != NULL){
+        //while(curr != NULL){
+            std::cout<<"test";
             queue->enqueue(curr->getData(),1);
             curr = curr->getNext();
-        }
+       // }
     }
     else{
         std::cout<<"ERROR: start point is greater then number of NOdes or less than zero";
         return;
     }
-        
+    std::cout<<queue->dequeue()->getData();
+    
     while(!queue->isEmpty()){
         curr = queue->dequeue();
         std::cout<<curr->getData()<<" is "<<curr->getDistance()<<" from "<<start<<std::endl;

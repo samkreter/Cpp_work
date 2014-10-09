@@ -39,7 +39,7 @@ Node* Queue::dequeue(){
         delete(temp);
         temp = NULL;
         return q;
-    }
+         }
     std::cout<<"Error: Queue is empty";
     return 0;
 }
