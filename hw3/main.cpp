@@ -28,7 +28,11 @@ int main(int argc, char** argv) {
     GraphList* graph;
     GraphList* graphTrans;
     std::string parseString, substring;
-    ifstream inputFile("test6.grph");
+    std::string file;
+    
+    std::cout<<"Enter the file name"<<std::endl;
+    std::cin>>file;
+    ifstream inputFile(file);
    
     if(inputFile.is_open()){
         inputFile>>numOfNodes;
@@ -57,17 +61,17 @@ int main(int argc, char** argv) {
     
    
    graph->printGraph();
-//    std::cout<<std::endl;
-//    graphTrans->printGraph();
+
     
-   
+   //bulding the stack to test the connected componets 
     Stack* q;
     Stack* t;
-    //graph->BFS(1);
+    graph->BFS(1);
     q = graph->DFS(1);
-    
+    //creating the place holder for whats on the stack to test in the reverse graph
     int size = q->getSize();
     int* holder = new int[size];
+    /*
     for(int i; i<size; i++){
         holder[i] = q->pop()->getData();
         std::cout<<holder[i]<<" ";
@@ -75,12 +79,12 @@ int main(int argc, char** argv) {
     
     std::cout<<std::endl;
      t = graphTrans->DFS(holder[0]);
-     
+     //get the data from the stack 
      while(!t->isEmpty()){
          std::cout<<t->pop()->getData()<<" ";
      }
-     
-    
+     */
+    //close the file 
     inputFile.close();
     
     return 0;

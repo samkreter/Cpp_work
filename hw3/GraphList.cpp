@@ -37,7 +37,7 @@ void GraphList::setNumOfNodes(int numOfNodes){
 int GraphList::getNumOfNodes(){
     return this->numOfNodes;
 }
-
+//add edges to the graph 
 void GraphList::addEdge(int edge1, int edge2){
     if(edge1 < numOfNodes && edge2 < numOfNodes){
         graphlist[edge1]->add(edge2);
@@ -46,7 +46,7 @@ void GraphList::addEdge(int edge1, int edge2){
         std::cout<<"Error: edges out of boudn"<<std::endl;
     }
 }
-
+//printst the graph 
 void GraphList::printGraph(){
     for(int i=0; i<this->numOfNodes; i++){
         std::cout<<i;
@@ -59,7 +59,7 @@ void GraphList::printGraph(){
         std::cout<<std::endl;
     }
 }
-
+//prints out the distance from the intputed value 
 void GraphList::BFS(int start){
     
     
@@ -106,6 +106,7 @@ void GraphList::BFS(int start){
     delete(visitedArray);
 }
 
+//when each node finishes it is put on the stack 
 void GraphList::DFSUtil(int v, int visited[], Stack* q){
     // Mark the current node as visited and print it
     visited[v] = 1;
