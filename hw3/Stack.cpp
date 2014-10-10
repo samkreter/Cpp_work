@@ -29,26 +29,24 @@ void Stack::push(int data){
     else{
         Node* temp = new Node(data);
         temp->setNext(this->head);
-        this->head->setNext(temp);
+        this->head = temp;
     }
 }
 
 Node* Stack::pop(){
     if(this->head != NULL){
         Node* q = this->head;
-        Node* temp = this->head;
-        if(this->head->getNext() != NULL){
-            this->head = this->head->getNext();
+        Node* temp = this->head->getNext();
+        if(temp != NULL){
+            this->head = temp;
         }
         else{
             this->head = NULL;
         }
-        delete(temp);
-        temp = NULL;
         this->size--;
         return q;
     }
-    std::cout<<"Error: Queue is empty";
+    std::cout<<"Error: Stack is empty";
     return 0;
 }
 

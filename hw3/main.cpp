@@ -41,15 +41,15 @@ int main(int argc, char** argv) {
    
     
     while(!inputFile.eof()){
-        if(counter < graph->getNumOfNodes()){          
+       // if(counter < graph->getNumOfNodes()){          
             inputFile>>parseString;
             edge1 = atoi(parseString.substr(1, parseString.find(",")).c_str());
             edge2 = atoi(parseString.substr(parseString.find(",")+1,parseString.length()-1).c_str());
             graph->addEdge(edge1,edge2);
             graphTrans->addEdge(edge2,edge1);
             counter++;
-        }
-        else{break;}
+        //}
+        //else{break;}
 
     }
     
@@ -66,12 +66,14 @@ int main(int argc, char** argv) {
     //graph->BFS(1);
     q = graph->DFS(1);
     
-    while(!q->isEmpty()){
-        cout<<q->pop()->getData()<<" ";
-    }
+    
     
 
-        t = graphTrans->DFS(q->top()->getData());
+     t = graphTrans->DFS(5);
+     
+     //while(!t->isEmpty()){
+         std::cout<<t->pop()->getData()<<std::endl;
+     //}
     
     inputFile.close();
     

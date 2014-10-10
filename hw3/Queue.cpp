@@ -41,8 +41,6 @@ Node* Queue::dequeue(){
         else{
             this->head = NULL;
         }
-        delete(temp);
-        temp = NULL;
         this->size--;
         return q;
     }
