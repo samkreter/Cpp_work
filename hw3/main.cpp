@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
     GraphList* graph;
     GraphList* graphTrans;
     std::string parseString, substring;
-    ifstream inputFile("test0.grph");
+    ifstream inputFile("test6.grph");
    
     if(inputFile.is_open()){
         inputFile>>numOfNodes;
@@ -66,14 +66,20 @@ int main(int argc, char** argv) {
     //graph->BFS(1);
     q = graph->DFS(1);
     
+    int size = q->getSize();
+    int* holder = new int[size];
+    for(int i; i<size; i++){
+        holder[i] = q->pop()->getData();
+        std::cout<<holder[i]<<" ";
+    }
     
-    
-
-     t = graphTrans->DFS(5);
+    std::cout<<std::endl;
+     t = graphTrans->DFS(holder[0]);
      
-     //while(!t->isEmpty()){
-         std::cout<<t->pop()->getData()<<std::endl;
-     //}
+     while(!t->isEmpty()){
+         std::cout<<t->pop()->getData()<<" ";
+     }
+     
     
     inputFile.close();
     

@@ -141,6 +141,7 @@ Stack* GraphList::DFS(int v)
     // Mark all the vertices as not visited
     int *visited = new int[this->numOfNodes];
     Stack* q = new Stack();
+    q->push(v);
     
     for(int i = 0; i < this->numOfNodes; i++)
         visited[i] = 0;
