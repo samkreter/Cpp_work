@@ -8,8 +8,9 @@
 #include<iostream>
 #include "Node.h"
 #include "List.h"
-#include "GraphList.h"
 #include "Queue.h"
+#include "GraphList.h"
+
 
 
 GraphList::GraphList(int numOfNodes) {
@@ -100,14 +101,15 @@ void GraphList::BFS(int start){
             std::cout<<i<<" is not connected to "<<start<<std::endl;
         }
     }
+    
+    delete(visitedArray);
 }
 
-void GraphList::DFSUtil(int v, int visited[]){
+void GraphList::DFSUtil(int v, int visited[], Stack* q){
     // Mark the current node as visited and print it
     visited[v] = 1;
-    std::cout << v<<":visited" <<std::endl;
  
-    Node* curr = graphlist[v]->getHead();
+    Node* curr = this->graphlist[v]->getHead();
 
     if(curr == NULL){
         return;
@@ -125,23 +127,27 @@ void GraphList::DFSUtil(int v, int visited[]){
             }
         }
 
-        DFSUtil(curr->getData(),visited);
-        std::cout<<"finished with: "<<curr->getData()<<std::endl;
+        DFSUtil(curr->getData(),visited,q);
+        q->push(curr->getData());
     }
    
    
 }
  
 // DFS traversal of the vertices reachable from v. It uses recursive DFSUtil()
-void GraphList::DFS(int v)
+Stack* GraphList::DFS(int v)
 {
     // Mark all the vertices as not visited
     int *visited = new int[this->numOfNodes];
+    Stack* q = new Stack();
+    
     for(int i = 0; i < this->numOfNodes; i++)
         visited[i] = 0;
  
     // Call the recursive helper function to print DFS traversal
-    DFSUtil(v, visited);
+    DFSUtil(v, visited, q);
+    delete(visited);
+    return q;
 }
 
 GraphList::~GraphList() {

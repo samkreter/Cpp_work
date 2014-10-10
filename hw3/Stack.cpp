@@ -1,37 +1,39 @@
 /* 
- * File:   Queue.cpp
+ * File:   Stack.cpp
  * Author: kreter
  * 
- * Created on October 8, 2014, 9:20 PM
+ * Created on October 9, 2014, 11:11 PM
  */
+
 #include<iostream>
+
+#include "Stack.h"
 #include "Node.h"
-#include "Queue.h"
 
-Queue::Queue() {
+
+Stack::Stack() {
     this->head = NULL;
-    setTail(NULL);
+    this->size = 0;
 }
 
-Node* Queue::look(){
+Node* Stack::top(){
     return this->head;
+   
 }
 
-void Queue::enqueue(int data, int distance){
+void Stack::push(int data){
     this->size++;
     if(this->head == NULL){
         this->head = new Node(data);
-        this->head->setDistance(distance);
-        this->tail = this->head;
     }
     else{
-        this->tail->setNext(new Node(data));
-        this->tail = this->tail->getNext();
-        this->tail->setDistance(distance);
+        Node* temp = new Node(data);
+        temp->setNext(this->head);
+        this->head->setNext(temp);
     }
 }
 
-Node* Queue::dequeue(){
+Node* Stack::pop(){
     if(this->head != NULL){
         Node* q = this->head;
         Node* temp = this->head;
@@ -50,8 +52,8 @@ Node* Queue::dequeue(){
     return 0;
 }
 
-int Queue::isEmpty(){
-    if(head == NULL){
+int Stack::isEmpty(){
+    if(this->size == 0){
         return 1;
     }
     else{
@@ -59,19 +61,18 @@ int Queue::isEmpty(){
     }
 }
 
-Node* Queue::getTail(){
-    return this->tail;
+int Stack::getSize(){
+    return this->size;
 }
 
-
-
-void Queue::setTail(Node* n){
-    this->tail = n;
+void Stack::setHead(Node* n){
+    this->head = n;
 }
 
-Queue::~Queue() {
+Node* Stack::getHead(){
+    return this->head;
 }
 
-
-
+Stack::~Stack() {
+}
 

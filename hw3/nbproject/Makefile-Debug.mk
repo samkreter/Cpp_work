@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Node.o \
 	${OBJECTDIR}/Queue.o \
+	${OBJECTDIR}/Stack.o \
 	${OBJECTDIR}/main.o
 
 
@@ -85,6 +86,11 @@ ${OBJECTDIR}/Queue.o: Queue.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
+
+${OBJECTDIR}/Stack.o: Stack.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Stack.o Stack.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

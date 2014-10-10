@@ -9,6 +9,7 @@
 #define	GRAPHLIST_H
 
 #include "List.h"
+#include "Stack.h"
 
 class GraphList {
 public:
@@ -19,8 +20,8 @@ public:
     void addEdge(int edge1, int edge2);
     void printGraph();
     void BFS(int start);
-    void DFSUtil(int v, int visited[]);
-    void DFS(int v);
+    void DFSUtil(int v, int visited[], Stack* q);
+    Stack* DFS(int v);
     
 private:
      int numOfNodes;
