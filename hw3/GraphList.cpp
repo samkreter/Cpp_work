@@ -102,22 +102,35 @@ void GraphList::BFS(int start){
     }
 }
 
-void GraphList::DFSUtil(int v, bool visited[])
+void GraphList::DFSUtil(int v, int visited[])
 {
     // Mark the current node as visited and print it
-    visited[v] = true;
-    std::cout << v << " ";
+    visited[v] = 1;
+    std::cout << v<<":visited" <<std::endl;
  
     Node* curr = graphlist[v]->getHead();
-    while(!visited[curr->getData()] && curr->getNext() != NULL){
-        curr = curr->getNext();
-    }
+    std::cout<<curr->getData()<<std::endl;
     if(curr == NULL){
         return;
     }
-    else{
-        DFSUtil(curr->getData(),visited);
+    
+    while(visited[curr->getData()]){
+        if(curr == NULL){
+            return;
+        }
+        else{
+            curr = curr->getNext();
+            if(curr == NULL){
+                return;
+            }
+        };
     }
+
+    
+    DFSUtil(curr->getData(),visited);
+    std::cout<<"finished with: "<<curr->getData()<<std::endl;
+     
+   
    
 }
  
@@ -125,12 +138,12 @@ void GraphList::DFSUtil(int v, bool visited[])
 void GraphList::DFS(int v)
 {
     // Mark all the vertices as not visited
-    bool *visited = new bool[this->numOfNodes];
+    int *visited = new int[this->numOfNodes];
     for(int i = 0; i < this->numOfNodes; i++)
-        visited[i] = false;
+        visited[i] = 0;
  
     // Call the recursive helper function to print DFS traversal
-    //DFSUtil(v, visited);
+    DFSUtil(v, visited);
 }
 
 GraphList::~GraphList() {

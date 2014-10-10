@@ -54,8 +54,8 @@ int main(int argc, char** argv) {
     
    
 
-    graph->BFS(1);
-   // graph->DFS(1);
+    //graph->BFS(1);
+   graph->DFS(1);
     
     
     inputFile.close();
