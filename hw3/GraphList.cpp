@@ -32,8 +32,17 @@ void GraphList::setNumOfNodes(int numOfNodes){
     }
 }
 
+int GraphList::getNumOfNodes(){
+    return this->numOfNodes;
+}
+
 void GraphList::addEdge(int edge1, int edge2){
-    graphlist[edge1]->add(edge2);
+    if(edge1 < numOfNodes && edge2 < numOfNodes){
+        graphlist[edge1]->add(edge2);
+    }
+    else{
+        std::cout<<"Error: edges out of boudn"<<std::endl;
+    }
 }
 
 void GraphList::printGraph(){
@@ -51,27 +60,19 @@ void GraphList::printGraph(){
 
 void GraphList::BFS(int start){
     
-//    Queue* q = new Queue();   
-//    q->enqueue(1,8);
-//    std::cout<<q->dequeue()->getData();
-    
-    
-    
     
     //set array for visited, if 0 not visited, 1 visited
     int* visitedArray = new int[this->numOfNodes]();
     int distance = 0;
     Queue queue = Queue();
     Node* curr = NULL;
-    
+    std::cout<<start<<" is 0 from "<<start<<std::endl;
     
     if(start > 0 && start < numOfNodes){
         visitedArray[start] = 1;
         curr = graphlist[start]->getHead();
         while(curr != NULL){
-            std::cout<<"test";
-            std::cout<<curr->getData();
-            queue.enqueue(4,1);
+            queue.enqueue(curr->getData(),1);
             curr = curr->getNext();
         }
     }
@@ -81,11 +82,12 @@ void GraphList::BFS(int start){
     }
     
     while(!queue.isEmpty()){
-        std::cout<<"test2";
         curr = queue.dequeue();
-        std::cout<<curr->getData()<<" is "<<curr->getDistance()<<" from "<<start<<std::endl;
         if(!visitedArray[curr->getData()]){
+            std::cout<<curr->getData()<<" is "<<curr->getDistance()<<" from "<<start<<std::endl;
+            visitedArray[curr->getData()] = 1;
             distance = curr->getDistance() + 1;
+            curr = graphlist[curr->getData()]->getHead();
             while(curr != NULL){
                 queue.enqueue(curr->getData(),distance);
                 curr = curr->getNext();
@@ -93,7 +95,11 @@ void GraphList::BFS(int start){
         }
     }
     
-    
+    for(int i=0;i<this->numOfNodes;i++){
+        if(!visitedArray[i]){
+            std::cout<<i<<" is not connected to "<<start<<std::endl;
+        }
+    }
 }
 
 void GraphList::DFSUtil(int v, bool visited[])

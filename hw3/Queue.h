@@ -20,6 +20,8 @@ public:
     void setTail(Node* n);
     Node* getTail();
     Node* getHead();
+    Node* look();
+    int size = 0;
     
     virtual ~Queue();
 private:

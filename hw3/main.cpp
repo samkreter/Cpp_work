@@ -35,11 +35,11 @@ int main(int argc, char** argv) {
     else{
         cout<<"error reading the file";
     }
-    graph = new GraphList(numOfNodes);
+    graph = new GraphList(numOfNodes + 1);
    
     
     while(!inputFile.eof()){
-        if(counter < 4){               ////////////////////////////// <<<test
+        if(counter < graph->getNumOfNodes()){               ////////////////////////////// <<<test
             inputFile>>parseString;
             edge1 = atoi(parseString.substr(1, parseString.find(",")).c_str());
             edge2 = atoi(parseString.substr(parseString.find(",")+1,parseString.length()-1).c_str());
@@ -51,6 +51,7 @@ int main(int argc, char** argv) {
     }
     
     graph->printGraph();
+    
    
 
     graph->BFS(1);

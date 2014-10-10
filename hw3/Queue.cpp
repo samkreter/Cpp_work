@@ -13,7 +13,12 @@ Queue::Queue() {
     setTail(NULL);
 }
 
+Node* Queue::look(){
+    return this->head;
+}
+
 void Queue::enqueue(int data, int distance){
+    this->size++;
     if(this->head == NULL){
         this->head = new Node(data);
         this->head->setDistance(distance);
@@ -38,6 +43,7 @@ Node* Queue::dequeue(){
         }
         delete(temp);
         temp = NULL;
+        this->size--;
         return q;
     }
     std::cout<<"Error: Queue is empty";
