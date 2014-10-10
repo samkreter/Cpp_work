@@ -66,15 +66,13 @@ int main(int argc, char** argv) {
     //graph->BFS(1);
     q = graph->DFS(1);
     
-    //while(!q->isEmpty()){
+    while(!q->isEmpty()){
+        cout<<q->pop()->getData()<<" ";
+    }
+    
+
         t = graphTrans->DFS(q->top()->getData());
-        while(!q->isEmpty()){
-            std::cout<<";alkdsjf"<<q->isEmpty()<<"alkjd;f"<<std::endl;
-            std::cout<<q->pop()->getData()<<" ";
-        }
-//        std::cout<<std::endl;
-    //}
-   
+    
     inputFile.close();
     
     return 0;

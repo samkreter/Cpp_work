@@ -8,6 +8,7 @@
       <itemPath>List.h</itemPath>
       <itemPath>Node.h</itemPath>
       <itemPath>Queue.h</itemPath>
+      <itemPath>Stack.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -20,6 +21,7 @@
       <itemPath>List.cpp</itemPath>
       <itemPath>Node.cpp</itemPath>
       <itemPath>Queue.cpp</itemPath>
+      <itemPath>Stack.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
