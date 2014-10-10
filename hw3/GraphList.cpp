@@ -102,34 +102,32 @@ void GraphList::BFS(int start){
     }
 }
 
-void GraphList::DFSUtil(int v, int visited[])
-{
+void GraphList::DFSUtil(int v, int visited[]){
     // Mark the current node as visited and print it
     visited[v] = 1;
     std::cout << v<<":visited" <<std::endl;
  
     Node* curr = graphlist[v]->getHead();
-    std::cout<<curr->getData()<<std::endl;
+
     if(curr == NULL){
         return;
     }
-    
-    while(visited[curr->getData()]){
-        if(curr == NULL){
-            return;
-        }
-        else{
-            curr = curr->getNext();
+    while(curr != NULL){
+        while(visited[curr->getData()]){
             if(curr == NULL){
                 return;
             }
-        };
-    }
+            else{
+                curr = curr->getNext();
+                if(curr == NULL){
+                    return;
+                }
+            }
+        }
 
-    
-    DFSUtil(curr->getData(),visited);
-    std::cout<<"finished with: "<<curr->getData()<<std::endl;
-     
+        DFSUtil(curr->getData(),visited);
+        std::cout<<"finished with: "<<curr->getData()<<std::endl;
+    }
    
    
 }
